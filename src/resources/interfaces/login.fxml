@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<BorderPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+            prefHeight="768.0" prefWidth="1366.0" stylesheets="@../stylesheets/interface.css"
+            xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controllers.LoginController">
+    <bottom>
+        <HBox fx:id="toolbar" alignment="CENTER" prefHeight="100.0" prefWidth="400.0" styleClass="bar"
+              BorderPane.alignment="CENTER">
+            <padding>
+                <Insets bottom="25.0" left="-55" right="25.0" top="25.0"/>
+            </padding>
+            <BorderPane.margin>
+                <Insets/>
+            </BorderPane.margin>
+            <effect>
+                <DropShadow/>
+            </effect>
+
+
+            <Button fx:id="infoBtn" alignment="CENTER" contentDisplay="CENTER" layoutX="1178.0" layoutY="44.0"
+                    mnemonicParsing="false" onAction="#showCredits" styleClass="info-button">
+                <graphic>
+                    <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true"
+                               styleClass="minimize-button">
+                        <image>
+                            <Image url="@../icons/info-w.png"/>
+                        </image>
+                    </ImageView>
+                </graphic>
+                <HBox.margin>
+                    <Insets left="1150.0"/>
+                </HBox.margin>
+                <tooltip>
+                    <Tooltip text="%info.btn"/>
+                </tooltip>
+            </Button>
+
+            <Button alignment="CENTER" contentDisplay="CENTER" layoutX="1196.0" layoutY="41.0" mnemonicParsing="false"
+                    onAction="#minimizeWindow" styleClass="minimize-button">
+                <graphic>
+                    <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true"
+                               styleClass="minimize-button">
+                        <image>
+                            <Image url="@../icons/minimize-w.png"/>
+                        </image>
+                    </ImageView>
+                </graphic>
+                <HBox.margin>
+                    <Insets left="2.0"/>
+                </HBox.margin>
+                <tooltip>
+                    <Tooltip text="%minimize.btn"/>
+                </tooltip>
+            </Button>
+            <Button fx:id="exitBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false"
+                    onAction="#closeProgram" styleClass="exit-button">
+                <HBox.margin>
+                    <Insets left="2.0"/>
+                </HBox.margin>
+                <graphic>
+                    <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../icons/close-w.png"/>
+                    </ImageView>
+                </graphic>
+                <tooltip>
+                    <Tooltip text="%close.btn"/>
+                </tooltip>
+            </Button>
+            <SplitMenuButton mnemonicParsing="false">
+                <HBox.margin>
+                    <Insets left="2.0"/>
+                </HBox.margin>
+                <graphic>
+                    <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../icons/world.png"/>
+                    </ImageView>
+                </graphic>
+                <tooltip>
+                    <Tooltip text="%label.choose_langs"/>
+                </tooltip>
+                <items>
+                    <MenuItem mnemonicParsing="false" onAction="#russian" text="Русский"/>
+                    <MenuItem mnemonicParsing="false" onAction="#english" text="English"/>
+                    <MenuItem mnemonicParsing="false" onAction="#french" text="French"/>
+                    <MenuItem mnemonicParsing="false" onAction="#sk" text="Slovak"/>
+                </items>
+            </SplitMenuButton>
+            <Button fx:id="logOutBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false"
+                    onAction="#logOut" styleClass="logout-button">
+                <HBox.margin>
+                    <Insets left="2.0"/>
+                </HBox.margin>
+                <graphic>
+                    <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../icons/logout.png"/>
+                    </ImageView>
+                </graphic>
+                <tooltip>
+                    <Tooltip text="%logout.btn"/>
+                </tooltip>
+            </Button>
+
+        </HBox>
+    </bottom>
+    <center>
+        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+            <children>
+                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="50.0">
+                    <children>
+                        <TextField fx:id="addressInput" promptText="%address.field"/>
+                        <TextField fx:id="portInput" promptText="%port.field"/>
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="50.0">
+                    <children>
+                        <TextField fx:id="loginInput" promptText="%login.field"/>
+                        <PasswordField fx:id="passwordInput" promptText="%password.field"/>
+                    </children>
+                </HBox>
+                <Label fx:id="errorMsg">
+                    <font>
+                        <Font size="15.0"/>
+                    </font>
+                </Label>
+                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="50.0">
+                    <children>
+                        <Button mnemonicParsing="false" onAction="#login" text="%login.btn"/>
+                        <Button mnemonicParsing="false" onAction="#register" text="%register.btn"/>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </center>
+</BorderPane>
